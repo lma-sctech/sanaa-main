@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { AboutStorySection } from "../components/AboutStory";
 import { HeroVideo } from "../components/HeroVideo";
@@ -57,7 +56,7 @@ export default function HomePage() {
                 target={service.href.startsWith("http") ? "_blank" : undefined}
                 rel={service.href.startsWith("http") ? "noopener noreferrer" : undefined}
               >
-                <Image src={service.image} alt="" fill sizes={service.featured ? "(max-width: 48rem) 100vw, 66vw" : "(max-width: 48rem) 100vw, 33vw"} className="service-card__bg" />
+                <img src={asset(service.image)} alt="" className="service-card__bg" />
                 <div className={`service-card__overlay ${service.featured ? "service-card__overlay--h" : ""}`} />
                 <div className="service-card__content">
                   <p className="service-card__eyebrow">{service.eyebrow}</p>

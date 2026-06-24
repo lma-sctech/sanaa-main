@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { asset } from "../lib/base-path";
 
 const aboutSections = [
   {
@@ -75,7 +76,7 @@ export function AboutStorySection() {
     <>
       <section className="story-section">
         <button type="button" className="story-card" onClick={() => setIsOpen(true)} aria-label="Open About us story">
-          <img src="/images/office.webp" alt="" className="story-card__bg" />
+          <img src={asset("/images/office.webp")} alt="" className="story-card__bg" />
           <div className="story-card__overlay" />
           <div className="story-card__content">
             <p className="story-card__eyebrow">Discover our story</p>
