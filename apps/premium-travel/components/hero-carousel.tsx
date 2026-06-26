@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Arrow, Search } from "@/components/icons";
+import type { FormEvent } from "react";
 
 const slides = [
   {
@@ -36,8 +37,10 @@ const slides = [
 export function HeroCarousel() {
   const [active, setActive] = useState(0);
   const router = useRouter();
-  const activeSlide = slides[active]!;
-  const nextSlide = slides[(active + 1) % slides.length]!;
+  const activeSlide = slides[active] ?? slides[0];
+  const nextSlide = slides[(active + 1) % slides.length] ?? activeSlide;
+
+  if (!activeSlide || !nextSlide) return null;
 
   useEffect(() => {
     const interval = window.setInterval(() => setActive((current) => (current + 1) % slides.length), 8000);

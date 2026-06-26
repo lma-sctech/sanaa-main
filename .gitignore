@@ -26,9 +26,19 @@ coverage/
 tmp/
 .deploy/
 .pages-sim/
+.claude/
 
 # Editors and operating systems
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
+
+# Local source files and root-level asset staging
+/sanaa_reviews.xlsx
+/facebook-brands-solid-full.svg
+/google-brands-solid-full.svg
+/google-color-svgrepo-com.svg
+/instagram-brands-solid-full.svg
+/logo-sanaaservices-3d.svg
+/logo-sanaaservices.svg

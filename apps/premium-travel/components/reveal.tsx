@@ -1,6 +1,7 @@
 "use client";
 
-import { HTMLAttributes, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { HTMLAttributes } from "react";
 
 export function Reveal({
   children,

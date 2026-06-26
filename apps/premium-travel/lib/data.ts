@@ -82,7 +82,7 @@ const atlasItinerary: ItineraryDay[] = [
       "Accueil privé à l'aéroport, installation dans votre riad et dîner confidentiel sur une terrasse dominant la médina.",
     stay: "Riad Dar Sanaa",
     meals: "Dîner",
-    coordinates: [18, 22],
+    coordinates: [31.63, -8.00],
   },
   {
     day: 2,
@@ -92,7 +92,7 @@ const atlasItinerary: ItineraryDay[] = [
       "Visite des ateliers de la médina avec une historienne de l'art, déjeuner chez une cheffe et soirée libre.",
     stay: "Riad Dar Sanaa",
     meals: "Petit-déjeuner, déjeuner",
-    coordinates: [20, 23],
+    coordinates: [31.63, -7.99],
   },
   {
     day: 3,
@@ -102,7 +102,7 @@ const atlasItinerary: ItineraryDay[] = [
       "Route panoramique vers l'Atlas, marche privée avec un guide de montagne et déjeuner dans une maison berbère.",
     stay: "Kasbah Tamadot",
     meals: "Pension complète",
-    coordinates: [35, 39],
+    coordinates: [31.35, -7.60],
   },
   {
     day: 4,
@@ -112,7 +112,7 @@ const atlasItinerary: ItineraryDay[] = [
       "Traversée du col du Tizi n'Tichka, découverte d'un ksar classé et atelier de cuisine au coucher du soleil.",
     stay: "Maison d'hôtes Ksar Ighnda",
     meals: "Pension complète",
-    coordinates: [48, 55],
+    coordinates: [31.05, -7.13],
   },
   {
     day: 5,
@@ -122,7 +122,7 @@ const atlasItinerary: ItineraryDay[] = [
       "Rencontre avec une coopérative locale, route dans la vallée et pique-nique privé sous les palmiers.",
     stay: "Azalaï Desert Lodge",
     meals: "Pension complète",
-    coordinates: [62, 67],
+    coordinates: [30.05, -5.99],
   },
   {
     day: 6,
@@ -132,7 +132,7 @@ const atlasItinerary: ItineraryDay[] = [
       "Progression en 4x4 vers les dunes, installation dans un camp exclusif et dîner sous les étoiles.",
     stay: "Sanaa Private Camp",
     meals: "Pension complète",
-    coordinates: [78, 79],
+    coordinates: [29.82, -5.63],
   },
   {
     day: 7,
@@ -142,7 +142,7 @@ const atlasItinerary: ItineraryDay[] = [
       "Lever de soleil, marche avec un naturaliste ou temps libre au camp, puis apéritif sur les dunes.",
     stay: "Sanaa Private Camp",
     meals: "Pension complète",
-    coordinates: [80, 80],
+    coordinates: [29.80, -5.65],
   },
   {
     day: 8,
@@ -152,7 +152,7 @@ const atlasItinerary: ItineraryDay[] = [
       "Route vers Ouarzazate avec halte dans une oasis et dîner de clôture dans une demeure privée.",
     stay: "Dar Ahlam",
     meals: "Pension complète",
-    coordinates: [52, 58],
+    coordinates: [30.92, -6.90],
   },
   {
     day: 9,
@@ -162,15 +162,18 @@ const atlasItinerary: ItineraryDay[] = [
       "Vol privé ou route vers Marrakech, temps libre et transfert à l'aéroport selon votre horaire.",
     stay: "Départ",
     meals: "Petit-déjeuner",
-    coordinates: [19, 23],
+    coordinates: [31.63, -8.00],
   },
 ];
 
 const compactItinerary = (
   places: string[],
   stays: string[],
-): ItineraryDay[] =>
-  places.map((place, index) => ({
+  coords: [number, number][],
+): ItineraryDay[] => {
+  const fallbackCoordinates: [number, number] = coords[coords.length - 1] ?? [0, 0];
+
+  return places.map((place, index) => ({
     day: index + 1,
     place,
     title:
@@ -183,8 +186,9 @@ const compactItinerary = (
       "Une journée équilibrée entre découverte guidée, rencontre locale et temps libre, ajustable selon vos envies.",
     stay: stays[index] ?? stays[stays.length - 1] ?? "",
     meals: index === 0 ? "Dîner" : "Petit-déjeuner, déjeuner",
-    coordinates: [15 + index * 11, 20 + index * 8],
+    coordinates: coords[index] ?? fallbackCoordinates,
   }));
+};
 
 export const journeys: Journey[] = [
   {
@@ -270,6 +274,7 @@ export const journeys: Journey[] = [
     itinerary: compactItinerary(
       ["Marrakech", "Médina", "Ourika", "Agafay", "Marrakech", "Départ"],
       ["Riad Dar Sanaa", "Riad Dar Sanaa", "Kasbah Bab Ourika", "Scarabeo Camp"],
+      [[31.63, -8.00], [31.63, -7.99], [31.36, -7.86], [31.50, -8.25], [31.63, -8.00], [31.63, -8.00]],
     ),
   },
   {
@@ -305,6 +310,7 @@ export const journeys: Journey[] = [
     itinerary: compactItinerary(
       ["Amman", "Jerash", "Mer Morte", "Pétra", "Pétra", "Wadi Rum", "Aqaba", "Départ"],
       ["The House Boutique", "The House Boutique", "Mövenpick Dead Sea", "Petra Moon", "Sanaa Desert Camp"],
+      [[31.95, 35.93], [32.28, 35.89], [31.50, 35.47], [30.33, 35.44], [30.33, 35.44], [29.57, 35.42], [29.53, 35.01], [31.95, 35.93]],
     ),
   },
   {
@@ -339,6 +345,7 @@ export const journeys: Journey[] = [
     itinerary: compactItinerary(
       ["Arusha", "Tarangire", "Tarangire", "Ngorongoro", "Ngorongoro", "Serengeti", "Serengeti", "Serengeti", "Mara River", "Arusha", "Départ"],
       ["Legendary Lodge", "Oliver's Camp", "The Highlands", "Namiri Plains"],
+      [[-3.37, 36.68], [-4.03, 36.01], [-4.03, 36.01], [-3.17, 35.59], [-3.17, 35.59], [-2.33, 34.83], [-2.33, 34.83], [-2.33, 34.83], [-1.50, 35.00], [-3.37, 36.68], [-3.37, 36.68]],
     ),
   },
   {
@@ -373,6 +380,7 @@ export const journeys: Journey[] = [
     itinerary: compactItinerary(
       ["Lisbonne", "Sintra", "Comporta", "Alentejo", "Douro", "Douro", "Porto", "Départ"],
       ["Bairro Alto Hotel", "Sublime Comporta", "São Lourenço do Barrocal", "Six Senses Douro"],
+      [[38.72, -9.14], [38.80, -9.39], [38.38, -8.79], [38.02, -7.87], [41.16, -7.72], [41.16, -7.72], [41.16, -8.63], [38.72, -9.14]],
     ),
   },
   {
@@ -408,6 +416,7 @@ export const journeys: Journey[] = [
     itinerary: compactItinerary(
       ["Fès", "Médina de Fès", "Moulay Idriss", "Volubilis", "Départ"],
       ["Riad Fès", "Riad Fès", "Dar Zerhoune"],
+      [[34.03, -5.00], [34.06, -4.97], [34.06, -5.52], [34.07, -5.55], [34.03, -5.00]],
     ),
   },
 ];

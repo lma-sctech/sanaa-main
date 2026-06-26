@@ -1,7 +1,8 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { asset } from "../lib/base-path";
+import type { FormEvent } from "react";
 
 export function RequestForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");

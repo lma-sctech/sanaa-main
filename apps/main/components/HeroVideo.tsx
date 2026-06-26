@@ -8,16 +8,17 @@ export function HeroVideo() {
   useEffect(() => {
     const video = ref.current;
     if (!video) return;
+    const videoElement = video;
 
     function onPlaying() {
-      video!.classList.add("is-playing");
+      videoElement.classList.add("is-playing");
     }
 
-    if (video.readyState >= 3) {
+    if (videoElement.readyState >= 3) {
       onPlaying();
     } else {
-      video.addEventListener("playing", onPlaying, { once: true });
-      return () => video.removeEventListener("playing", onPlaying);
+      videoElement.addEventListener("playing", onPlaying, { once: true });
+      return () => videoElement.removeEventListener("playing", onPlaying);
     }
   }, []);
 

@@ -29,10 +29,12 @@ RUN pnpm build
 
 FROM nginx:alpine AS main
 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /workspace/apps/main/out /usr/share/nginx/html
 EXPOSE 80
 
 FROM nginx:alpine AS premium-travel
 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /workspace/apps/premium-travel/out /usr/share/nginx/html
 EXPOSE 80

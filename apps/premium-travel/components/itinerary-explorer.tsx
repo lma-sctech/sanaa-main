@@ -1,11 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { ItineraryDay } from "@/lib/data";
+import dynamic from "next/dynamic";
+import type { ItineraryDay } from "@/lib/data";
+
+const ItineraryMap = dynamic(() => import("@/components/itinerary-map").then((m) => m.ItineraryMap), {
+  ssr: false,
+  loading: () => <div className="itinerary-map" style={{ background: "#ded7c8", display: "flex", alignItems: "center", justifyContent: "center", color: "#746c70", fontSize: "0.85rem" }}>Loading map...</div>,
+});
 
 export function ItineraryExplorer({ days }: { days: ItineraryDay[] }) {
   const [activeDay, setActiveDay] = useState(1);
-  const active = (days.find((day) => day.day === activeDay) ?? days[0])!;
 
   return (
     <div className="itinerary-explorer">
@@ -27,28 +32,7 @@ export function ItineraryExplorer({ days }: { days: ItineraryDay[] }) {
           </button>
         ))}
       </div>
-      <div className="itinerary-map">
-        <div className="itinerary-map__grid" />
-        <div className="itinerary-map__route" />
-        {days.map((day) => (
-          <button
-            type="button"
-            key={day.day}
-            className={activeDay === day.day ? "is-active" : ""}
-            style={{ left: `${day.coordinates[0]}%`, top: `${day.coordinates[1]}%` }}
-            onClick={() => setActiveDay(day.day)}
-            aria-label={`Jour ${day.day}, ${day.place}`}
-          >
-            {day.day}
-          </button>
-        ))}
-        <div className="itinerary-map__card">
-          <span>Jour {active.day}</span>
-          <strong>{active.place}</strong>
-          <p>{active.title}</p>
-        </div>
-        <small>Carte illustrative · synchronisée avec l’itinéraire</small>
-      </div>
+      <ItineraryMap days={days} activeDay={activeDay} onDayChange={setActiveDay} />
     </div>
   );
 }

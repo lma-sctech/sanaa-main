@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Journey } from "@/lib/data";
 import { formatPrice } from "@/lib/format";
 import { Arrow } from "@/components/icons";
 import { FavoriteButton } from "@/components/favorite-button";
+import type { Journey } from "@/lib/data";
 
 export function JourneyCard({ journey, compact = false }: { journey: Journey; compact?: boolean }) {
   return (

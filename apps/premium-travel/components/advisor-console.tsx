@@ -19,6 +19,8 @@ const operationalAlerts = [
   { title: "Vol Ouarzazate–Paris", detail: "Option jusqu’au 18 juin", done: false },
 ];
 
+const supplierCosts = [920, 1380, 1110, 1860] as const;
+
 export function AdvisorConsole() {
   const [margin, setMargin] = useState(22);
   const [selected, setSelected] = useState(2);
@@ -68,7 +70,7 @@ export function AdvisorConsole() {
           <section className="advisor-panel quote-builder">
             <div className="advisor-panel__head"><div><p className="eyebrow">Devis V4 · Claire Thomas</p><h2>Constructeur d’itinéraire</h2></div><span>Brouillon sauvegardé</span></div>
             <div className="quote-builder__days">
-              {["Marrakech · Dar Sanaa", "Haut Atlas · Kasbah Tamadot", "Aït Ben Haddou · Ksar Ighnda", "Erg Chigaga · Private Camp"].map((item, index) => <article key={item}><span>{index + 1}</span><div><small>Jours {index * 2 + 1}–{index * 2 + 2}</small><strong>{item}</strong></div><em>{formatPrice([920, 1380, 1110, 1860][index]!)}</em><button type="button">•••</button></article>)}
+              {["Marrakech · Dar Sanaa", "Haut Atlas · Kasbah Tamadot", "Aït Ben Haddou · Ksar Ighnda", "Erg Chigaga · Private Camp"].map((item, index) => <article key={item}><span>{index + 1}</span><div><small>Jours {index * 2 + 1}–{index * 2 + 2}</small><strong>{item}</strong></div><em>{formatPrice(supplierCosts[index] ?? 0)}</em><button type="button">•••</button></article>)}
               <button type="button" className="add-day">+ Ajouter une étape</button>
             </div>
             <div className="quote-builder__totals">

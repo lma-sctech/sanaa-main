@@ -1,4 +1,7 @@
-type IconProps = { size?: number; className?: string };
+interface IconProps {
+  size?: number;
+  className?: string;
+}
 
 export function Arrow({ size = 18, className }: IconProps) {
   return (

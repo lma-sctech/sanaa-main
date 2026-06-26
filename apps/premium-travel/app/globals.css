@@ -2690,94 +2690,28 @@ h3 {
 
 .itinerary-map {
   position: sticky;
-  top: 150px;
-  height: 730px;
+  top: 100px;
+  height: 680px;
+  border-radius: 0.5rem;
   overflow: hidden;
-  background: #ded7c8;
+  z-index: 1;
 }
 
-.itinerary-map__grid {
-  position: absolute;
-  inset: 0;
-  opacity: 0.4;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255,255,255,.9), transparent 28%),
-    radial-gradient(circle at 70% 80%, rgba(116,122,105,.3), transparent 26%),
-    repeating-linear-gradient(25deg, transparent 0 40px, rgba(74,65,67,.09) 41px 42px);
-}
+.itinerary-marker { background: none !important; border: none !important; }
 
-.itinerary-map__route {
-  position: absolute;
-  left: 18%;
-  top: 22%;
-  width: 65%;
-  height: 58%;
-  border: 2px dashed rgba(181, 87, 53, 0.65);
-  border-radius: 45% 55% 38% 62%;
-  transform: rotate(12deg);
-}
-
-.itinerary-map > button {
-  position: absolute;
-  z-index: 2;
-  width: 30px;
-  height: 30px;
-  transform: translate(-50%, -50%);
-  border: 2px solid white;
-  border-radius: 50%;
-  background: var(--plum);
-  color: white;
-  font-size: 0.65rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,.2);
-}
-
-.itinerary-map > button.is-active {
-  width: 42px;
-  height: 42px;
-  background: var(--terracotta);
-}
-
-.itinerary-map__card {
-  position: absolute;
-  z-index: 3;
-  left: 35px;
-  bottom: 50px;
-  width: min(320px, calc(100% - 70px));
-  padding: 22px;
+.itinerary-tooltip {
   background: var(--paper);
-  box-shadow: var(--shadow);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-.itinerary-map__card span,
-.itinerary-map__card strong,
-.itinerary-map__card p {
-  display: block;
-}
-
-.itinerary-map__card span {
-  color: var(--terracotta);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
-
-.itinerary-map__card strong {
-  margin: 7px 0;
-  font: 400 1.6rem var(--serif);
-}
-
-.itinerary-map__card p {
-  margin: 0;
-  color: var(--muted);
-  font-size: .78rem;
-}
-
-.itinerary-map > small {
-  position: absolute;
-  right: 18px;
-  bottom: 14px;
-  color: rgba(36,31,36,.55);
-}
+.itinerary-tooltip::before { border-top-color: var(--paper) !important; }
 
 .journey-stay-feature {
   background: var(--plum);

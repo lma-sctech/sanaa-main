@@ -2,10 +2,15 @@ import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { JourneyCard } from "@/components/journey-card";
 import { journeys } from "@/lib/data";
+import type { Journey } from "@/lib/data";
 
 export const metadata = { title: "Offres & départs | Sanaa" };
 
 export default function OffersPage() {
+  const offerJourneys = [journeys[2], journeys[1], journeys[4]].filter(
+    (journey): journey is Journey => Boolean(journey),
+  );
+
   return (
     <>
       <PageHero image="/images/wadi-rum-camp.webp" eyebrow="Départs privilégiés" title={<>Une occasion juste.<br />Jamais une fausse urgence.</>} text="Départs confirmés, nouvelles ouvertures et avantages négociés avec nos partenaires." compact />
@@ -17,7 +22,7 @@ export default function OffersPage() {
       <section className="offers-list section-shell">
         <div className="journey-section-title"><div><p className="eyebrow">En ce moment</p><h2>Trois raisons de partir bientôt.</h2></div><Link href="/voyages" className="text-link">Voir toute la collection</Link></div>
         <div className="journey-grid journey-grid--three">
-          {[journeys[2]!, journeys[1]!, journeys[4]!].map((journey) => <JourneyCard journey={journey} key={journey.slug} compact />)}
+          {offerJourneys.map((journey) => <JourneyCard journey={journey} key={journey.slug} compact />)}
         </div>
       </section>
     </>

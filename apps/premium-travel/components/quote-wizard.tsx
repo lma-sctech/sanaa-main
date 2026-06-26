@@ -1,8 +1,9 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { Check } from "@/components/icons";
 import { destinations, interests } from "@/lib/data";
+import type { FormEvent } from "react";
 
 const steps = ["Projet", "Voyageurs", "Préférences", "Coordonnées"];
 
