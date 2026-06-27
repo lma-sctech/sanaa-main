@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { SITE_URL } from "@/lib/base-path";
-import "@sanaa/design-system/styles.css";
 import "@/app/globals.css";
 
 export const viewport: Viewport = {
@@ -12,17 +10,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Signature Journey | Sanaa Services",
+    default: "Signature Journey by Sanaa Services",
     template: "%s | Sanaa",
   },
   description:
-    "Editorial preview for private journeys shaped around rhythm, context and human guidance.",
-  robots: {
-    index: false,
-    follow: false,
-  },
+    "Private journeys shaped around your rhythm, with thoughtful itineraries and personal guidance.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -30,7 +23,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         <Header />
-        <main id="content">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
