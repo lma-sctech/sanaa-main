@@ -1,2 +1,2 @@
-:HL["/_next/static/chunks/1swaz1_ep3lh8.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"demande-de-voyage","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"6lUbY-MMQFX1UZbyBiFe3"}
+:HL["/premium-travel/_next/static/chunks/1swaz1_ep3lh8.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"demande-de-voyage","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"a9YQ74spGNOJNWUeIgjjC"}

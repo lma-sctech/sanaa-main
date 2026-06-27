@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[93529,["/_next/static/chunks/05kvjpm-09xm_.js","/_next/static/chunks/0q2pe_jup165u.js"],""]
-3:I[35073,["/_next/static/chunks/05kvjpm-09xm_.js","/_next/static/chunks/0q2pe_jup165u.js"],"OutletBoundary"]
+2:I[93529,["/premium-travel/_next/static/chunks/0vb8d6unoq6ua.js","/premium-travel/_next/static/chunks/0q2pe_jup165u.js"],""]
+3:I[35073,["/premium-travel/_next/static/chunks/0vb8d6unoq6ua.js","/premium-travel/_next/static/chunks/0q2pe_jup165u.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"quote-page","children":["$","div",null,{"className":"quote-success","children":[["$","p",null,{"className":"eyebrow","children":"Erreur 404"}],["$","h2",null,{"children":"Cette route ne figure pas encore sur la carte."}],["$","p",null,{"children":"Revenez à la collection ou confiez directement votre idée à un conseiller."}],["$","$L2",null,{"href":"/voyages","className":"button button--dark","children":"Explorer les voyages"}]]}]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"6lUbY-MMQFX1UZbyBiFe3"}
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"quote-page","children":["$","div",null,{"className":"quote-success","children":[["$","p",null,{"className":"eyebrow","children":"Erreur 404"}],["$","h2",null,{"children":"Cette route ne figure pas encore sur la carte."}],["$","p",null,{"children":"Revenez à la collection ou confiez directement votre idée à un conseiller."}],["$","$L2",null,{"href":"/voyages","className":"button button--dark","children":"Explorer les voyages"}]]}]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"a9YQ74spGNOJNWUeIgjjC"}
 5:null
