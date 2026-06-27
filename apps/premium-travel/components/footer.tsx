@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Brand } from "@/components/brand";
 import { Arrow } from "@/components/icons";
+import { asset } from "@/lib/base-path";
 
 export function Footer() {
   const pathname = usePathname();
@@ -32,9 +33,9 @@ export function Footer() {
           <Brand />
           <p>Voyages privés, expériences rares et plateforme de suivi, imaginés depuis Marrakech.</p>
           <div className="footer-socials">
-            <a href="#" aria-label="Instagram">Ig</a>
-            <a href="#" aria-label="LinkedIn">Li</a>
-            <a href="#" aria-label="Pinterest">Pi</a>
+            <a href="https://www.google.com/search?q=sanaaservices+astoria+newyork#lrd=0x89c25f402a398c2d:0x20cbdb6005b7476c,1,,,,," target="_blank" rel="noopener noreferrer" aria-label="Google Reviews"><img src={asset("/images/icons/google-solid.svg")} alt="" width={20} height={20} /></a>
+            <a href="https://www.instagram.com/sanaa.services/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src={asset("/images/icons/instagram.svg")} alt="" width={20} height={20} /></a>
+            <a href="https://web.facebook.com/SANAASERVICES" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src={asset("/images/icons/facebook.svg")} alt="" width={20} height={20} /></a>
           </div>
         </div>
         <div className="footer-column">
@@ -66,8 +67,8 @@ export function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <span>© 2026 Sanaa Voyages & Services</span>
-        <span>Marrakech · Paris · Lisbonne</span>
+        <span>© 2026 Sanaa Services</span>
+        <span>New York</span>
         <span>Prototype plateforme V2</span>
       </div>
     </footer>
