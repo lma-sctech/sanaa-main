@@ -606,6 +606,37 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
 }
 
 /* Featured card — spans 2 columns */
+.service-card__link,
+.service-card__status {
+  margin-top: 1rem;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--gold);
+}
+
+.service-card__link .service-card__arrow {
+  margin-top: 0;
+  align-self: center;
+}
+
+.service-card__status {
+  color: rgba(255,255,255,0.68);
+}
+
+.service-card:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
 .service-card--featured {
   grid-column: span 2;
 }

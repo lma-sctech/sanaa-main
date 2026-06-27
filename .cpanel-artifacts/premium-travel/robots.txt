@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: /
+
+Sitemap: https://www.mbk.ma/premium-travel/sitemap.xml

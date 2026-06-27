@@ -2,31 +2,27 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { asset } from "@/lib/base-path";
 
 const navigation = [
   { href: "/destinations", label: "Destinations" },
-  { href: "/voyages", label: "Voyages" },
-  { href: "/pourquoi-sanaa", label: "Why Sanaa" },
-  { href: "/offres", label: "Offers" },
+  { href: "/journeys", label: "Journeys" },
+  { href: "/why-sanaa", label: "Why Sanaa" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className={`main-header ${scrolled ? "is-scrolled" : ""}`}>
+    <header className="main-header">
+      <a className="skip-link" href="#content">
+        Skip to content
+      </a>
       <div className="main-header__inner">
-        <Link href="/" className="main-header__brand" aria-label="Sanaa Services, home">
+        <Link href="/" className="main-header__brand" aria-label="Signature Journey home">
           <img
             src={asset("/images/logo.png")}
             alt="Sanaa Services"
@@ -45,9 +41,30 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <Link href="/demande-de-voyage" className="main-header__cta">
-          Plan a journey
+        <Link href="/request-a-journey" className="main-header__cta">
+          Request path
         </Link>
+        <button
+          type="button"
+          className="main-header__menu"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          onClick={() => setOpen((value) => !value)}
+        >
+          Menu
+        </button>
+      </div>
+      <div id="mobile-navigation" className={`mobile-nav ${open ? "is-open" : ""}`}>
+        <nav aria-label="Mobile navigation">
+          {navigation.map((item) => (
+            <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+              {item.label}
+            </Link>
+          ))}
+          <Link href="/request-a-journey" onClick={() => setOpen(false)}>
+            Request a journey
+          </Link>
+        </nav>
       </div>
     </header>
   );

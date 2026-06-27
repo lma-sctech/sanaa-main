@@ -44,7 +44,7 @@ export function RequestForm() {
                   <div>
                     <p className="request-eyebrow">Service request</p>
                     <h3 className="request-card__title">How can we help?</h3>
-                    <p className="request-card__desc">Fill in the basics — we handle the rest.</p>
+                    <p className="request-card__desc">Fill in the basics - we handle the rest.</p>
                   </div>
 
                   <input type="text" name="company" tabIndex={-1} autoComplete="off" className="request-honeypot" aria-hidden="true" />
@@ -79,14 +79,14 @@ export function RequestForm() {
                       <span>What do you need help with?</span>
                       <select name="service" required defaultValue="">
                         <option value="" disabled>Select a service...</option>
-                        <option>Travel — Flights &amp; Hotels</option>
-                        <option>Signature Journey — Tailor-made trip</option>
+                        <option>Travel - Flights &amp; Hotels</option>
+                        <option>Signature Journey - Tailor-made trip</option>
                         <option>Visa &amp; Immigration</option>
                         <option>Notary &amp; Legal Documents</option>
-                        <option>Translation — Certified</option>
-                        <option>Insurance — Life, Family or Travel</option>
+                        <option>Translation - Certified</option>
+                        <option>Insurance - Life, Family or Travel</option>
                         <option>Driving School &amp; DMV</option>
-                        <option>Other — I'll explain below</option>
+                        <option>Other - I&apos;ll explain below</option>
                       </select>
                     </label>
 

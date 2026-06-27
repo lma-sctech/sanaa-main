@@ -1,0 +1,14 @@
+:root {
+  --sanaa-shell: min(1180px, calc(100vw - 40px));
+  --sanaa-radius: 24px;
+  --sanaa-focus: 0 0 0 3px rgba(181, 87, 53, 0.34);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:focus-visible {
+  outline: 0;
+  box-shadow: var(--sanaa-focus);
+}

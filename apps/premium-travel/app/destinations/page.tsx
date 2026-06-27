@@ -1,60 +1,52 @@
-import Image from "next/image";
 import Link from "next/link";
-import { PageHero } from "@/components/page-hero";
-import { Reveal } from "@/components/reveal";
-import { SectionHeading } from "@/components/section-heading";
-import { Arrow } from "@/components/icons";
-import { destinations } from "@/lib/data";
+import { asset } from "@/lib/base-path";
+import { destinations, previewNotice } from "@/lib/premium-data";
 
 export const metadata = {
-  title: "Destinations | Sanaa",
-  description: "Des territoires racontés par celles et ceux qui les connaissent intimement.",
+  title: "Destinations",
+  description: "Editorial destination concepts for Signature Journey by Sanaa Services.",
 };
 
 export default function DestinationsPage() {
   return (
     <>
-      <PageHero
-        image="/images/hero-atlantic.webp"
-        eyebrow="Le monde selon Sanaa"
-        title={<>Choisir un territoire.<br />Puis prendre le temps.</>}
-        text="Des destinations sélectionnées pour la richesse de leurs rencontres, avec des équipes locales qui savent ouvrir les bonnes portes."
-      />
-
-      <section className="destination-index section-shell">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Notre collection"
-            title="Quatre horizons, mille façons de les vivre."
-            text="Chaque destination dispose de son propre réseau de guides, maisons, artisans et experts. Le catalogue grandira avec la plateforme."
-          />
-        </Reveal>
-        <div className="destination-index__grid">
-          {destinations.map((destination, index) => (
-            <Reveal className="destination-index__card" key={destination.slug} delay={index * 70}>
-              <Link href={`/destinations/${destination.slug}`}>
-                <Image src={destination.image} alt="" fill sizes="(max-width: 800px) 100vw, 50vw" />
-                <div className="destination-index__shade" />
-                <div className="destination-index__copy">
-                  <p>{destination.region}</p>
-                  <h2>{destination.name}</h2>
-                  <span>{destination.eyebrow}</span>
-                  <small>{destination.journeyCount} voyages à imaginer</small>
-                  <span className="icon-link"><Arrow /></span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
+      <div className="notice">{previewNotice}</div>
+      <section className="detail-hero">
+        <div className="shell">
+          <p className="eyebrow">Destinations</p>
+          <h1>Four territories, held as editorial lenses.</h1>
+          <p>
+            These pages describe context and intention only. They do not present
+            bookable products or commercial availability.
+          </p>
         </div>
       </section>
-
-      <section className="editorial-band">
-        <Reveal>
-          <p className="eyebrow">Une destination manque à l’appel&nbsp;?</p>
-          <h2>Notre catalogue montre ce qui est prêt. Notre réseau va plus loin.</h2>
-          <p>Parlez-nous d’un lieu, d’une saison ou simplement d’une sensation recherchée.</p>
-          <Link href="/demande-de-voyage" className="button button--terracotta">Confier mon projet</Link>
-        </Reveal>
+      <section className="section section--paper">
+        <div className="shell grid grid--2">
+          {destinations.map((destination) => (
+            <article className="card" key={destination.slug}>
+              <div className="card__image">
+                <img src={asset(destination.asset.source)} alt={destination.asset.alt} />
+                <span className="asset-status">{destination.asset.provenance}</span>
+              </div>
+              <div className="card__body">
+                <p className="eyebrow">{destination.region}</p>
+                <h2>{destination.name}</h2>
+                <p>{destination.introduction}</p>
+                <ul className="pill-list">
+                  {destination.themes.map((theme) => (
+                    <li key={theme}>{theme}</li>
+                  ))}
+                </ul>
+                <p>
+                  <Link className="text-link" href={`/destinations/${destination.slug}`}>
+                    Read destination
+                  </Link>
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
     </>
   );

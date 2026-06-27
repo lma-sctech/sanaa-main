@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
-const BASE = "https://sanaaservices.com";
+const BASE = process.env.NEXT_PUBLIC_MAIN_URL ?? "https://www.mbk.ma";
 
 const routes = ["/", "/privacy", "/accessibility"];
 

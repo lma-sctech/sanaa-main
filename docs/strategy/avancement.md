@@ -76,6 +76,20 @@ La Phase 0, consacree a la sauvegarde des prototypes historiques dans `_backup/`
 
 ## Phase 7 - Premium Travel
 
+**Statut : implementation technique terminee, validation editoriale en attente.**
+
+- Application `apps/premium-travel` recadree comme vitrine editoriale anglaise.
+- Routes creees : `/`, `/destinations`, `/destinations/[slug]`, `/journeys`, `/journeys/[slug]`, `/request-a-journey`, `/why-sanaa` et `/contact`.
+- `/client-space` et les prototypes applicatifs restent hors perimetre public.
+- Quatre destinations editoriales definies : Morocco, Jordan, Tanzania et Portugal.
+- Six concepts de voyage issus du prototype historique reecrits sans donnees commerciales.
+- Prix, notes, avis, disponibilites, dates, capacites, partenaires et promesses non verifiees exclus.
+- Images historiques conservees comme assets de preview avec provenance `unverified`.
+- Message visible : `Editorial preview - journeys are illustrative and not bookable`.
+- Robots en `disallow: /` et sitemap vide tant que le brief, le NAP, les politiques, les contenus et les droits image ne sont pas approuves.
+- Deploiement Heberjahiz aligne sur `https://www.mbk.ma/premium-travel`.
+- Phase 6 maintenue en validation editoriale.
+
 ## Phase 8 - Insurance
 
 ## Phase 9 - Travel, Visa, Immigration et Translation

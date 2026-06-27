@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[35073,["/premium-travel/_next/static/chunks/3ygtz8dn5k-5-.js","/premium-travel/_next/static/chunks/0q2pe_jup165u.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[[["$","div",null,{"className":"notice","children":"Editorial preview - journeys are illustrative and not bookable"}],["$","section",null,{"className":"detail-hero","children":["$","div",null,{"className":"shell","children":[["$","p",null,{"className":"eyebrow","children":"Contact"}],["$","h1",null,{"children":"Contact details are intentionally not published yet."}],["$","p",null,{"children":"This preview avoids fictitious phone numbers, addresses, email forms and fake success states. Verified contact information will be added after the NAP and policy review."}]]}]}]],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"qcqFaqLB7h5Rx84U7Ogco"}
+4:null

@@ -1,0 +1,6 @@
+:HL["/_next/static/chunks/0e9lp3bmfushp.css","style"]
+:HL["/images/logo.png","image"]
+:HL["/images/icons/google-solid.svg","image"]
+:HL["/images/icons/instagram.svg","image"]
+:HL["/images/icons/facebook.svg","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"accessibility","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"LTsSPvYd3EYKVMd6zPDjj"}

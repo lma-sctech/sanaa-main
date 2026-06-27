@@ -1,4 +1,15 @@
 ---
+# Heberjahiz production: https://www.mbk.ma
+# Pre-built static artifacts in .cpanel-artifacts/ are copied to public_html.
+# Build locally:  pnpm build
+# Stage artifacts: cp -R apps/main/out .cpanel-artifacts/main
+#                  cp -R apps/premium-travel/out .cpanel-artifacts/premium-travel
 deployment:
   tasks:
-    - /bin/bash scripts/cpanel-deploy.sh "$HOME/public_html" "$HOME/public_html/premium-travel"
+    # Clean public_html (preserve .well-known for SSL and cgi-bin)
+    - /bin/bash -c 'find "$HOME/public_html" -mindepth 1 -maxdepth 1 ! -name .well-known ! -name cgi-bin -exec rm -rf {} +'
+    # Deploy main site to root
+    - /bin/cp -a .cpanel-artifacts/main/. "$HOME/public_html/"
+    # Deploy premium-travel sub-site
+    - /bin/mkdir -p "$HOME/public_html/premium-travel"
+    - /bin/cp -a .cpanel-artifacts/premium-travel/. "$HOME/public_html/premium-travel/"

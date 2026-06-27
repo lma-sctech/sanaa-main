@@ -1,0 +1,2 @@
+:HL["/premium-travel/_next/static/chunks/3vf8i5zc9orb7.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"request-a-journey","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"qcqFaqLB7h5Rx84U7Ogco"}

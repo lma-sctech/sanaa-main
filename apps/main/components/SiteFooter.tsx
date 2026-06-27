@@ -24,7 +24,7 @@ export function SiteFooter() {
           </Link>
           <p>
             Travel, notary, insurance, translation, driving and immigration services
-            from Astoria, Queens — with multilingual, personalized guidance.
+            from Astoria, Queens - with multilingual, personalized guidance.
           </p>
           <div className="main-footer__socials">
             <a href={GOOGLE_REVIEWS} target="_blank" rel="noopener noreferrer" aria-label="Google Reviews">
@@ -41,12 +41,11 @@ export function SiteFooter() {
 
         <nav className="main-footer__column" aria-label="Services">
           <h3>Services</h3>
-          <a href={TRAVEL_URL} target="_blank" rel="noopener noreferrer">Signature Journey</a>
+          <a href={TRAVEL_URL} target="_blank" rel="noopener noreferrer">
+            Signature Journey
+          </a>
           <Link href="/#services">Travel</Link>
-          <Link href="/#services">Visa &amp; Immigration</Link>
           <Link href="/#services">Notary &amp; Legal</Link>
-          <Link href="/#services">Translation</Link>
-          <Link href="/#services">Insurance</Link>
           <Link href="/#services">Driving School</Link>
         </nav>
 
@@ -68,7 +67,7 @@ export function SiteFooter() {
             />
           </div>
           <p>{address}</p>
-          <p>Mon–Sat, 9:00 AM – 6:00 PM</p>
+          <p>Mon-Sat, 9:00 AM - 6:00 PM</p>
           <a href={mapLink} target="_blank" rel="noreferrer" className="main-footer__map-link">
             Open in Google Maps
           </a>

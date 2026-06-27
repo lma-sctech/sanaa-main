@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "leaflet": "^1.9.4",
+    "@sanaa/design-system": "workspace:*",
+    "@sanaa/shared": "workspace:*",
     "next": "16.2.9",
     "react": "19.2.7",
     "react-dom": "19.2.7"
@@ -18,7 +19,6 @@
   "devDependencies": {
     "@sanaa/eslint-config": "workspace:*",
     "@sanaa/typescript-config": "workspace:*",
-    "@types/leaflet": "^1.9.21",
     "@types/node": "22.19.21",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",

@@ -7,6 +7,7 @@ const config: Record<string, unknown> = {
   images: { unoptimized: true },
   poweredByHeader: false,
   reactStrictMode: true,
+  trailingSlash: true,
 };
 
 if (basePath) config.basePath = basePath;

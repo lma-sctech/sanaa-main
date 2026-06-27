@@ -1,158 +1,164 @@
-import Image from "next/image";
 import Link from "next/link";
-import { AirlineCarousel } from "@/components/airline-carousel";
-import { HeroCarousel } from "@/components/hero-carousel";
-import { HomeRecommendations } from "@/components/home-recommendations";
-import { TripPersona } from "@/components/trip-persona";
-import { Reveal } from "@/components/reveal";
-import { SectionHeading } from "@/components/section-heading";
-import { accommodations, experiences } from "@/lib/data";
-import { Arrow, Check } from "@/components/icons";
+import { asset } from "@/lib/base-path";
+import {
+  accommodationPrinciples,
+  approvalGate,
+  destinations,
+  experiences,
+  journeys,
+  previewNotice,
+} from "@/lib/premium-data";
+import { EditorialHero } from "@/components/editorial-hero";
+import { JourneyFinder } from "@/components/journey-finder";
+
+const heroScenes = [
+  {
+    eyebrow: "Private Morocco",
+    title: "Travel shaped around rhythm, context and restraint.",
+    text: "Signature Journey is the editorial preview for Sanaa Services private travel.",
+    image: "/images/hero-atlantic.webp",
+  },
+  {
+    eyebrow: "Walking Tanzania",
+    title: "Approach the living world with patience.",
+    text: "Concepts are built around fewer claims, clearer intentions and human guidance.",
+    image: "/images/tanzania-walk.webp",
+  },
+  {
+    eyebrow: "Wadi Rum nights",
+    title: "Let silence become part of the itinerary.",
+    text: "Every journey remains illustrative until content and commercial data are approved.",
+    image: "/images/wadi-rum-camp.webp",
+  },
+];
 
 export default function HomePage() {
+  const selectedJourneys = journeys.slice(0, 3);
+
   return (
     <>
-      <HeroCarousel />
+      <div className="notice">{previewNotice}</div>
+      <EditorialHero scenes={heroScenes} />
 
-      <AirlineCarousel />
-
-      <section className="manifesto">
-        <Reveal>
-          <p className="eyebrow">Sanaa Voyages & Services</p>
-          <p className="manifesto__quote">
-            Nous croyons aux voyages qui laissent de la place à l&apos;inattendu,
-            sans jamais laisser leur organisation au hasard.
-          </p>
-          <div className="manifesto__signature">
-            <span />
-            <p>Une présence humaine, soutenue par une plateforme attentive.</p>
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Selected concepts</p>
+              <h2>Six ideas, no booking promise.</h2>
+            </div>
+            <p>
+              The historic prototype has been rewritten as editorial concepts only:
+              no prices, reviews, dates, capacities, partners or availability.
+            </p>
           </div>
-        </Reveal>
-      </section>
-
-      <HomeRecommendations />
-
-      <TripPersona />
-
-      <section className="experiences-section section-shell">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Rencontres choisies"
-            title={<>L&apos;expérience avant la liste.</>}
-            text="Nous sélectionnons moins d'activités, mais nous les relions mieux au territoire, à ses habitants et à votre façon de voyager."
-            action={<Link href="/experiences/artisans-vivants" className="text-link">Toutes les expériences <Arrow /></Link>}
-          />
-        </Reveal>
-        <div className="experience-mosaic">
-          {experiences.map((experience, index) => (
-            <Reveal key={experience.slug} className={`experience-tile experience-tile--${index + 1}`} delay={index * 80}>
-              <Link href={`/experiences/${experience.slug}`}>
-                <Image src={experience.image} alt="" fill sizes="(max-width: 700px) 100vw, 50vw" />
-                <div>
-                  <span>{experience.location}</span>
-                  <h3>{experience.title}</h3>
-                  <p>{experience.category}</p>
+          <div className="grid grid--3">
+            {selectedJourneys.map((journey) => (
+              <article className="card" key={journey.slug}>
+                <div className="card__image">
+                  <img src={asset(journey.asset.source)} alt={journey.asset.alt} />
+                  <span className="asset-status">{journey.asset.provenance}</span>
                 </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="stays-section">
-        <div className="section-shell">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Dormir quelque part qui compte"
-              title="Des maisons choisies pour leur âme."
-              text="L'architecture, l'équipe et l'ancrage local comptent autant que le niveau de service."
-            />
-          </Reveal>
-          <div className="stay-grid">
-            {accommodations.map((stay, index) => (
-              <Reveal className="stay-card" key={stay.slug} delay={index * 80}>
-                <Link href={`/hebergements/${stay.slug}`}>
-                  <div className="stay-card__image">
-                    <Image src={stay.image} alt="" fill sizes="(max-width: 700px) 88vw, 32vw" />
-                    <span>{stay.type}</span>
-                  </div>
-                  <div className="stay-card__body">
-                    <p>{stay.location}</p>
-                    <h3>{stay.name}</h3>
-                    <span>Note {stay.rating}/5</span>
-                  </div>
-                </Link>
-              </Reveal>
+                <div className="card__body">
+                  <p className="eyebrow">{journey.rhythm}</p>
+                  <h3>{journey.name}</h3>
+                  <p>{journey.intention}</p>
+                  <Link className="text-link" href={`/journeys/${journey.slug}`}>
+                    Read concept
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="testimonial-feature">
-        <div className="testimonial-feature__image">
-          <Image src="/images/marrakech-breakfast.webp" alt="" fill sizes="50vw" />
-        </div>
-        <Reveal className="testimonial-feature__copy">
-          <p className="eyebrow">Paroles de voyageurs</p>
-          <blockquote>
-            “Nous avions un itinéraire précis, mais jamais la sensation d&apos;être enfermés
-            dans un programme. Sanaa avait prévu l&apos;essentiel et laissé respirer le reste.”
-          </blockquote>
-          <div>
-            <span>Claire & Thomas</span>
-            <small>Voyage privé au Maroc · Avril 2026</small>
-          </div>
-          <Link href="/inspiration" className="text-link">Lire leurs carnets <Arrow /></Link>
-        </Reveal>
-      </section>
+      <JourneyFinder />
 
-      <section className="responsible">
-        <div className="responsible__image">
-          <Image src="/images/fez-artisan.webp" alt="" fill sizes="50vw" />
-        </div>
-        <Reveal className="responsible__copy">
-          <p className="eyebrow">Voyager avec attention</p>
-          <h2>Plus de valeur locale. Moins de traces inutiles.</h2>
-          <p>
-            Nous privilégions les équipes locales, les hébergements indépendants et les expériences
-            qui rémunèrent justement leur savoir-faire. Chaque projet affiche bientôt ses indicateurs
-            d&apos;impact dans votre espace client.
-          </p>
-          <ul>
-            <li><Check /> Partenaires évalués et contrats transparents</li>
-            <li><Check /> Alternatives à faible impact proposées</li>
-            <li><Check /> Contribution locale visible dans le devis</li>
-          </ul>
-          <Link href="/pourquoi-sanaa" className="button button--outline-dark">Notre engagement <Arrow /></Link>
-        </Reveal>
-      </section>
-
-      <section className="why-home">
-        <div className="why-home__visual">
-          <Image src="/images/hero-atlantic.webp" alt="" fill sizes="100vw" />
-          <div>
-            <p className="eyebrow">Pourquoi Sanaa</p>
-            <h2>La précision d&apos;une plateforme. La chaleur d&apos;une relation.</h2>
-            <Link href="/pourquoi-sanaa" className="button button--outline-light">Découvrir notre histoire <Arrow /></Link>
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Destinations</p>
+              <h2>Four editorial territories.</h2>
+            </div>
+            <p>Each destination page explains the lens before any product is offered.</p>
           </div>
-        </div>
-        <div className="why-home__metrics">
-          <div><strong>1</strong><span>conseiller dédié du premier échange au retour</span></div>
-          <div><strong>24/7</strong><span>assistance pendant votre voyage</span></div>
-          <div><strong>97%</strong><span>de recommandations à un proche</span></div>
-          <div><strong>100%</strong><span>des devis versionnés et accessibles en ligne</span></div>
+          <div className="grid grid--2">
+            {destinations.map((destination) => (
+              <article className="card" key={destination.slug}>
+                <div className="card__image">
+                  <img src={asset(destination.asset.source)} alt={destination.asset.alt} />
+                  <span className="asset-status">{destination.asset.provenance}</span>
+                </div>
+                <div className="card__body">
+                  <p className="eyebrow">{destination.region}</p>
+                  <h3>{destination.name}</h3>
+                  <p>{destination.introduction}</p>
+                  <Link className="text-link" href={`/destinations/${destination.slug}`}>
+                    Open destination
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="home-final-cta">
-        <Reveal>
-          <p className="eyebrow">Deux façons de commencer</p>
-          <h2>Choisir un départ. Ou partir d&apos;une page blanche.</h2>
+      <section className="section section--paper">
+        <div className="shell grid grid--2">
           <div>
-            <Link href="/voyages" className="button button--dark">Voir les voyages disponibles</Link>
-            <Link href="/demande-de-voyage" className="button button--terracotta">Créer un voyage sur mesure</Link>
+            <p className="eyebrow">Experiences</p>
+            <h2>One meaningful encounter over a crowded list.</h2>
+            <ul className="check-list">
+              {experiences.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
-        </Reveal>
+          <div>
+            <p className="eyebrow">Accommodation approach</p>
+            <h2>Houses are described by principles first.</h2>
+            <ul className="check-list">
+              {accommodationPrinciples.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Why Sanaa</p>
+              <h2>Human guidance before automation.</h2>
+            </div>
+            <p>
+              Premium Travel remains a preview until the release gate is complete.
+              The current gate is intentionally visible.
+            </p>
+          </div>
+          <div className="grid grid--3">
+            {approvalGate.map((item) => (
+              <article className="card" key={item}>
+                <div className="card__body">
+                  <p className="eyebrow">Gate</p>
+                  <h3>{item}</h3>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="hero__actions">
+            <Link className="button" href="/request-a-journey">
+              Understand the future request path
+            </Link>
+            <Link className="button button--ghost" href="/contact">
+              Contact information
+            </Link>
+          </div>
+        </div>
       </section>
     </>
   );

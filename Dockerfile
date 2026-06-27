@@ -15,7 +15,9 @@ FROM base AS builder
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
 COPY apps/main/package.json apps/main/package.json
 COPY apps/premium-travel/package.json apps/premium-travel/package.json
+COPY packages/design-system/package.json packages/design-system/package.json
 COPY packages/eslint-config/package.json packages/eslint-config/package.json
+COPY packages/shared/package.json packages/shared/package.json
 COPY packages/typescript-config/package.json packages/typescript-config/package.json
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \

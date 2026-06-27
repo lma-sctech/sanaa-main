@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const SITE_NAME = "Sanaa Services";
-const BASE_URL = "https://sanaaservices.com";
+const BASE_URL = process.env.NEXT_PUBLIC_MAIN_URL ?? "https://www.mbk.ma";
 
 export function createMainMetadata({
   title,

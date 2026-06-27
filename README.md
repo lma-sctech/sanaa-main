@@ -56,7 +56,17 @@ Local URLs:
 
 ## Heberjahiz / cPanel Deployment
 
-The repository includes `.cpanel.yml` for cPanel Git deployment.
+The repository includes `.cpanel.yml` for cPanel Git deployment on `www.mbk.ma`.
+
+The cPanel task does not build the Next.js apps on the hosting account. It only
+copies versioned static artifacts from `.cpanel-artifacts/`.
+
+Before committing a deployment, prepare the artifacts locally:
+
+```powershell
+corepack pnpm install
+.\scripts\prepare-cpanel-artifacts.ps1
+```
 
 Default deployment targets:
 
@@ -66,20 +76,24 @@ Default deployment targets:
 Recommended Heberjahiz setup:
 
 1. Configure the main domain document root to `public_html`.
-2. Configure the Premium Travel subdomain, for example `travel.sanaaservices.com`, with document root `public_html/premium-travel`.
+2. Serve Premium Travel under `https://www.mbk.ma/premium-travel`.
 3. Connect the Git repository in cPanel Git Version Control.
 4. Deploy from cPanel. The deployment task runs `scripts/cpanel-deploy.sh`.
+5. Verify `https://www.mbk.ma` and `https://www.mbk.ma/premium-travel`.
 
-The cPanel host must provide Node.js `>=20.19.0` and either `corepack` or `pnpm`.
+The local artifact script builds Main with:
 
-If Premium Travel is served under a path such as `https://sanaaservices.com/premium-travel` instead of a subdomain, set this environment variable before deployment:
+- `NEXT_PUBLIC_MAIN_URL=https://www.mbk.ma`
+- `NEXT_PUBLIC_TRAVEL_URL=https://www.mbk.ma/premium-travel`
 
-```bash
-PREMIUM_BASE_PATH=/premium-travel
-```
+It builds Premium Travel with:
+
+- `NEXT_PUBLIC_BASE_PATH=/premium-travel`
+- `NEXT_PUBLIC_PREMIUM_TRAVEL_URL=https://www.mbk.ma/premium-travel`
 
 ## Deployment Notes
 
 - `_backup/`, caches, local runtime folders and spreadsheet source files are not committed.
 - `.turbo/`, `.runtime/`, `.next/`, `out/` and `node_modules/` are local/generated folders.
+- `.cpanel-artifacts/` is committed on purpose because cPanel shared hosting only copies static files.
 - The root-level SVG and Excel staging files are ignored; the assets used by the sites live under `apps/*/public`.

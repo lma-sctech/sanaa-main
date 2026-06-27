@@ -1,0 +1,8 @@
+:HL["/premium-travel/_next/static/chunks/3vf8i5zc9orb7.css","style"]
+:HL["/premium-travel/images/hero-atlantic.webp","image"]
+:HL["/premium-travel/images/marrakech-breakfast.webp","image"]
+:HL["/premium-travel/images/wadi-rum-camp.webp","image"]
+:HL["/premium-travel/images/tanzania-walk.webp","image"]
+:HL["/premium-travel/images/portugal-sailing.webp","image"]
+:HL["/premium-travel/images/fez-artisan.webp","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"journeys","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"qcqFaqLB7h5Rx84U7Ogco"}
