@@ -8,8 +8,8 @@ import { asset } from "@/lib/base-path";
 const navigation = [
   { href: "/destinations", label: "Destinations" },
   { href: "/voyages", label: "Voyages" },
-  { href: "/pourquoi-sanaa", label: "Why Sanaa" },
-  { href: "/offres", label: "Offers" },
+  { href: "/pourquoi-sanaa", label: "Pourquoi Sanaa" },
+  { href: "/offres", label: "Offres" },
 ];
 
 export function Header() {
@@ -46,7 +46,7 @@ export function Header() {
           ))}
         </nav>
         <Link href="/demande-de-voyage" className="main-header__cta">
-          Plan a journey
+          Demander un voyage
         </Link>
       </div>
     </header>
