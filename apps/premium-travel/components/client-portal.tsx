@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Check, Message } from "@/components/icons";
+import { asset } from "@/lib/base-path";
 
 const tabs = ["Vue d’ensemble", "Itinéraire", "Documents", "Paiements", "Voyageurs"];
 
@@ -37,7 +38,7 @@ export function ClientPortal() {
         {active === "Vue d’ensemble" && (
           <>
             <section className="portal-trip-card">
-              <Image src="/images/hero-atlantic.webp" alt="" fill sizes="(max-width: 1180px) 100vw, 60vw" />
+              <Image src={asset("/images/hero-atlantic.webp")} alt="" fill sizes="(max-width: 1180px) 100vw, 60vw" />
               <div><span>Prochain voyage · 12 septembre 2026</span><h2>Riad, Atlas et Sahara confidentiel</h2><p>9 jours · 2 voyageurs · Devis V3 accepté</p></div>
               <strong>89<small>jours</small></strong>
             </section>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { destinations, journeys } from "@/lib/data";
 import { JourneyCard } from "@/components/journey-card";
 import { Arrow } from "@/components/icons";
+import { asset } from "@/lib/base-path";
 
 const tabs = ["Destinations", "Voyages disponibles", "Offres", "Nouveautés"] as const;
 
@@ -45,7 +46,7 @@ export function HomeRecommendations() {
         <div className="destination-strip">
           {destinations.slice(0, 3).map((destination) => (
             <Link href={`/destinations/${destination.slug}`} key={destination.slug} className="destination-strip__card">
-              <Image src={destination.image} alt="" fill sizes="(max-width: 700px) 82vw, 33vw" />
+              <Image src={asset(destination.image)} alt="" fill sizes="(max-width: 700px) 82vw, 33vw" />
               <div>
                 <span>{destination.region}</span>
                 <h3>{destination.name}</h3>

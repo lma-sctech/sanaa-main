@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page-hero";
 import { Arrow, Check } from "@/components/icons";
 import { experiences, getExperience } from "@/lib/data";
+import { asset } from "@/lib/base-path";
 
 export function generateStaticParams() {
   return experiences.map((experience) => ({ slug: experience.slug }));
@@ -31,7 +32,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
           <Link href="/demande-de-voyage" className="button button--terracotta">Ajouter à mon projet</Link>
         </aside>
       </section>
-      <section className="full-image-break"><Image src="/images/marrakech-breakfast.webp" alt="" fill sizes="100vw" /><div><p>Chaque expérience existe dans un itinéraire, jamais hors-sol.</p><Link href="/voyages" className="text-link">Voir les voyages <Arrow /></Link></div></section>
+      <section className="full-image-break"><Image src={asset("/images/marrakech-breakfast.webp")} alt="" fill sizes="100vw" /><div><p>Chaque expérience existe dans un itinéraire, jamais hors-sol.</p><Link href="/voyages" className="text-link">Voir les voyages <Arrow /></Link></div></section>
     </>
   );
 }

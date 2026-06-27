@@ -1,3 +1,5 @@
+import { asset } from "@/lib/base-path";
+
 const airlines = [
   { name: "Emirates", src: "/images/airlines/emirates.svg" },
   { name: "Qatar Airways", src: "/images/airlines/qatar-airways.svg" },
@@ -17,7 +19,7 @@ export function AirlineCarousel() {
       <div className="airline-carousel__track" aria-hidden="true">
         {doubled.map((airline, i) => (
           <div className="airline-carousel__item" key={`${i}-${airline.name}`}>
-            <img src={airline.src} alt={airline.name} loading="lazy" />
+            <img src={asset(airline.src)} alt={airline.name} loading="lazy" />
           </div>
         ))}
       </div>

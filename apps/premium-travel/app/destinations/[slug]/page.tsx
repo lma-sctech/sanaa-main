@@ -6,6 +6,7 @@ import { JourneyCard } from "@/components/journey-card";
 import { Reveal } from "@/components/reveal";
 import { Arrow, Check } from "@/components/icons";
 import { destinations, getDestination, journeys } from "@/lib/data";
+import { asset } from "@/lib/base-path";
 
 export function generateStaticParams() {
   return destinations.map((destination) => ({ slug: destination.slug }));
@@ -62,7 +63,7 @@ export default async function DestinationPage({ params }: { params: Promise<{ sl
 
       <section className="destination-feature">
         <div className="destination-feature__image">
-          <Image src="/images/fez-artisan.webp" alt="" fill sizes="50vw" />
+          <Image src={asset("/images/fez-artisan.webp")} alt="" fill sizes="50vw" />
         </div>
         <Reveal className="destination-feature__copy">
           <p className="eyebrow">Une journée possible</p>

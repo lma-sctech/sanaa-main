@@ -8,6 +8,7 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { accommodations, experiences } from "@/lib/data";
 import { Arrow, Check } from "@/components/icons";
+import { asset } from "@/lib/base-path";
 
 export default function HomePage() {
   return (
@@ -47,7 +48,7 @@ export default function HomePage() {
           {experiences.map((experience, index) => (
             <Reveal key={experience.slug} className={`experience-tile experience-tile--${index + 1}`} delay={index * 80}>
               <Link href={`/experiences/${experience.slug}`}>
-                <Image src={experience.image} alt="" fill sizes="(max-width: 700px) 100vw, 50vw" />
+                <Image src={asset(experience.image)} alt="" fill sizes="(max-width: 700px) 100vw, 50vw" />
                 <div>
                   <span>{experience.location}</span>
                   <h3>{experience.title}</h3>
@@ -73,7 +74,7 @@ export default function HomePage() {
               <Reveal className="stay-card" key={stay.slug} delay={index * 80}>
                 <Link href={`/hebergements/${stay.slug}`}>
                   <div className="stay-card__image">
-                    <Image src={stay.image} alt="" fill sizes="(max-width: 700px) 88vw, 32vw" />
+                    <Image src={asset(stay.image)} alt="" fill sizes="(max-width: 700px) 88vw, 32vw" />
                     <span>{stay.type}</span>
                   </div>
                   <div className="stay-card__body">
@@ -90,7 +91,7 @@ export default function HomePage() {
 
       <section className="testimonial-feature">
         <div className="testimonial-feature__image">
-          <Image src="/images/marrakech-breakfast.webp" alt="" fill sizes="50vw" />
+          <Image src={asset("/images/marrakech-breakfast.webp")} alt="" fill sizes="50vw" />
         </div>
         <Reveal className="testimonial-feature__copy">
           <p className="eyebrow">Paroles de voyageurs</p>
@@ -108,7 +109,7 @@ export default function HomePage() {
 
       <section className="responsible">
         <div className="responsible__image">
-          <Image src="/images/fez-artisan.webp" alt="" fill sizes="50vw" />
+          <Image src={asset("/images/fez-artisan.webp")} alt="" fill sizes="50vw" />
         </div>
         <Reveal className="responsible__copy">
           <p className="eyebrow">Voyager avec attention</p>
@@ -129,7 +130,7 @@ export default function HomePage() {
 
       <section className="why-home">
         <div className="why-home__visual">
-          <Image src="/images/hero-atlantic.webp" alt="" fill sizes="100vw" />
+          <Image src={asset("/images/hero-atlantic.webp")} alt="" fill sizes="100vw" />
           <div>
             <p className="eyebrow">Pourquoi Sanaa</p>
             <h2>La précision d&apos;une plateforme. La chaleur d&apos;une relation.</h2>

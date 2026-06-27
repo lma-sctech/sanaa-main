@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { Arrow } from "@/components/icons";
+import { asset } from "@/lib/base-path";
 
 const stories = [
   { title: "Le Maroc après la première visite", tag: "Carnet", image: "/images/hero-atlantic.webp", text: "Quitter les grands axes pour suivre les routes atlantiques et les vallées du sud." },
@@ -25,7 +26,7 @@ export default function InspirationPage() {
           {stories.map((story, index) => (
             <Reveal className={`journal-card ${index === 0 ? "journal-card--lead" : ""}`} key={story.title} delay={(index % 3) * 70}>
               <Link href="/voyages">
-                <div><Image src={story.image} alt="" fill sizes={index === 0 ? "65vw" : "35vw"} /></div>
+                <div><Image src={asset(story.image)} alt="" fill sizes={index === 0 ? "65vw" : "35vw"} /></div>
                 <p>{story.tag} · 6 min</p><h2>{story.title}</h2><span>{story.text}</span><em className="text-link">Lire l’article <Arrow /></em>
               </Link>
             </Reveal>

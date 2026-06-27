@@ -7,6 +7,7 @@ import { JourneyCard } from "@/components/journey-card";
 import { Arrow, Calendar, Check, Message } from "@/components/icons";
 import { formatDate, formatPrice } from "@/lib/format";
 import { getJourney, journeys } from "@/lib/data";
+import { asset } from "@/lib/base-path";
 
 export function generateStaticParams() {
   return journeys.map((journey) => ({ slug: journey.slug }));
@@ -22,7 +23,7 @@ export default async function JourneyPage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <section className="journey-hero">
-        <Image src={journey.image} alt="" fill priority sizes="100vw" />
+        <Image src={asset(journey.image)} alt="" fill priority sizes="100vw" />
         <div className="journey-hero__veil" />
         <div className="journey-hero__content section-shell">
           <div>
@@ -87,7 +88,7 @@ export default async function JourneyPage({ params }: { params: Promise<{ slug: 
 
       <section id="hebergements" className="journey-stay-feature">
         <div className="journey-stay-feature__image">
-          <Image src="/images/azalai-lodge.webp" alt="" fill sizes="55vw" />
+          <Image src={asset("/images/azalai-lodge.webp")} alt="" fill sizes="55vw" />
         </div>
         <div className="journey-stay-feature__copy">
           <p className="eyebrow">Les maisons du voyage</p>

@@ -5,6 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { Arrow } from "@/components/icons";
 import { destinations } from "@/lib/data";
+import { asset } from "@/lib/base-path";
 
 export const metadata = {
   title: "Destinations | Sanaa",
@@ -33,7 +34,7 @@ export default function DestinationsPage() {
           {destinations.map((destination, index) => (
             <Reveal className="destination-index__card" key={destination.slug} delay={index * 70}>
               <Link href={`/destinations/${destination.slug}`}>
-                <Image src={destination.image} alt="" fill sizes="(max-width: 800px) 100vw, 50vw" />
+                <Image src={asset(destination.image)} alt="" fill sizes="(max-width: 800px) 100vw, 50vw" />
                 <div className="destination-index__shade" />
                 <div className="destination-index__copy">
                   <p>{destination.region}</p>

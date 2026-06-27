@@ -3,13 +3,14 @@ import Link from "next/link";
 import { formatPrice } from "@/lib/format";
 import { Arrow } from "@/components/icons";
 import { FavoriteButton } from "@/components/favorite-button";
+import { asset } from "@/lib/base-path";
 import type { Journey } from "@/lib/data";
 
 export function JourneyCard({ journey, compact = false }: { journey: Journey; compact?: boolean }) {
   return (
     <article className={`journey-card ${compact ? "journey-card--compact" : ""}`}>
       <div className="journey-card__image">
-        <Image src={journey.image} alt="" fill sizes={compact ? "(max-width: 700px) 88vw, 32vw" : "(max-width: 700px) 88vw, 38vw"} />
+        <Image src={asset(journey.image)} alt="" fill sizes={compact ? "(max-width: 700px) 88vw, 32vw" : "(max-width: 700px) 88vw, 38vw"} />
         <div className="journey-card__badges">
           <span>{journey.mode}</span>
           {journey.edit && <span className="is-accent">{journey.edit}</span>}

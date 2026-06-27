@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { Check } from "@/components/icons";
+import { asset } from "@/lib/base-path";
 
 export const metadata = { title: "Pourquoi Sanaa | Sanaa" };
 
@@ -20,7 +21,7 @@ export default function WhySanaaPage() {
         </div>
       </section>
       <section className="why-platform">
-        <div className="why-platform__image"><Image src="/images/azalai-lodge.webp" alt="" fill sizes="50vw" /></div>
+        <div className="why-platform__image"><Image src={asset("/images/azalai-lodge.webp")} alt="" fill sizes="50vw" /></div>
         <Reveal className="why-platform__copy">
           <p className="eyebrow">Une vraie application derrière le voyage</p>
           <h2>Tout ce qui doit être simple, au même endroit.</h2>

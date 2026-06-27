@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Arrow } from "@/components/icons";
+import { asset } from "@/lib/base-path";
 
 const personas = [
   {
@@ -50,7 +51,7 @@ export function TripPersona() {
             className={index === active ? "is-active" : ""}
             onMouseEnter={() => setActive(index)}
           >
-            <Image src={persona.image} alt="" fill sizes="(max-width: 800px) 78vw, 24vw" />
+            <Image src={asset(persona.image)} alt="" fill sizes="(max-width: 800px) 78vw, 24vw" />
             <div>
               <span>0{index + 1}</span>
               <h3>{persona.title}</h3>

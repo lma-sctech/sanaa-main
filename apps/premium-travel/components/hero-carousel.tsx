@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Arrow, Search } from "@/components/icons";
+import { asset } from "@/lib/base-path";
 import type { FormEvent } from "react";
 
 const slides = [
@@ -64,7 +65,7 @@ export function HeroCarousel() {
         {slides.map((slide, index) => (
           <Image
             key={slide.image}
-            src={slide.image}
+            src={asset(slide.image)}
             alt=""
             fill
             priority={index === 0}
@@ -86,7 +87,7 @@ export function HeroCarousel() {
         <div className="home-hero__sidecard">
           <span>0{active + 1}</span>
           <div className="home-hero__thumb">
-            <Image src={nextSlide.image} alt="" fill sizes="260px" />
+            <Image src={asset(nextSlide.image)} alt="" fill sizes="260px" />
           </div>
           <p>Ensuite</p>
           <strong>{nextSlide.eyebrow}</strong>

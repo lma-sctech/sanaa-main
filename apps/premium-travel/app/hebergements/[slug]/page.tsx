@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page-hero";
 import { Arrow, Check } from "@/components/icons";
 import { accommodations, getAccommodation } from "@/lib/data";
+import { asset } from "@/lib/base-path";
 
 export function generateStaticParams() {
   return accommodations.map((stay) => ({ slug: stay.slug }));
@@ -25,7 +26,7 @@ export default async function AccommodationPage({ params }: { params: Promise<{ 
           <h2>Une maison est d’abord une équipe.</h2>
           <p>{stay.description}</p>
           <p>Nous évaluons la qualité de l’accueil, la cohérence architecturale, les conditions de travail, la cuisine et la capacité à créer une vraie respiration dans l’itinéraire.</p>
-          <div className="stay-gallery"><Image src="/images/azalai-lodge.webp" alt="" fill sizes="55vw" /></div>
+          <div className="stay-gallery"><Image src={asset("/images/azalai-lodge.webp")} alt="" fill sizes="55vw" /></div>
         </article>
         <aside>
           <h3>Ce que nous aimons</h3>

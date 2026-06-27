@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { asset } from "@/lib/base-path";
 
 export function PageHero({
   image,
@@ -18,7 +19,7 @@ export function PageHero({
 }) {
   return (
     <section className={`page-hero ${compact ? "page-hero--compact" : ""}`}>
-      <Image src={image} alt="" fill priority sizes="100vw" />
+      <Image src={asset(image)} alt="" fill priority sizes="100vw" />
       <div className="page-hero__veil" />
       <div className="page-hero__content section-shell">
         <p className="eyebrow">{eyebrow}</p>
